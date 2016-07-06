@@ -1,0 +1,1067 @@
+\documentclass[psamsfonts,12pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,verbatim,graphicx,fullpage,mathtools,float,caption,subcaption ,wrapfig,tikz-cd}
+
+
+
+
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\newcommand\tb{\mathbf{b}}
+\newcommand\te{\mathbf{e}}
+\newcommand\twe{\tilde{\mathbf{e}}}
+\newcommand\tw{\mathbf{w}}
+\newcommand\tx{\mathbf{x}}
+\newcommand\tf{\mathbf{f}}
+\newcommand\tu{\mathbf{u}}
+\newcommand\teu{\tilde{\mathbf{u}}}
+\newcommand\tp{\mathbf{p}}
+\newcommand\h{\mathbf{h}}
+\newcommand\tti{\mathbf{t}}
+\newcommand\tn{\mathbf{n}}
+\newcommand\tm{\mathbf{m}}
+\newcommand\tr{\mathbf{r}}
+\newcommand\tv{\mathbf{v}}
+\newcommand\tev{\tilde{\mathbf{v}}}
+\newcommand\tbv{\overline{\mathbf{v}}}
+\newcommand\tc{\mathbf{c}}
+\newcommand\tF{\mathbf{F}}
+\newcommand\tz{\mathbf{z}}
+\newcommand\ta{\mathbf{a}}
+\newcommand\tl{\mathbf{l}}
+\newcommand\ga{\boldsymbol{\gamma}}
+\newcommand\tq{\mathbf{q}}
+\newcommand\ty{\mathbf{y}}
+\newcommand\ts{\mathbf{s}}
+\newcommand\td{\mathrm{d}}
+\newcommand\0{\mathbf{0}}
+\newcommand\thet{\boldsymbol{\theta}}
+\newcommand\phhi{\boldsymbol{\phi}}
+\newcommand\rhho{\boldsymbol{\rho}}
+\newcommand\grad{\boldsymbol{\nabla}}
+\newcommand\ang{\boldsymbol{\Omega}}
+\newcommand\rot{\boldsymbol{\omega}}
+\newcommand\inv{^{-1}}
+\DeclareMathOperator\rk{rk}
+\DeclareMathOperator\sgn{sgn}
+\newcommand\Span[1]{\left\langle #1 \right\rangle}
+\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand\term[1]{\emph{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each section
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{ex}[thm]{Example} % same for example numbers
+\newtheorem{rmk}[thm]{Remark}
+
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathcal{A}}
+\newcommand{\sB}{\mathcal{B}}
+\newcommand{\sC}{\mathcal{C}}
+\newcommand{\sD}{\mathcal{D}}
+\newcommand{\sE}{\mathcal{E}}
+\newcommand{\sF}{\mathcal{F}}
+\newcommand{\sG}{\mathcal{G}}
+\newcommand{\sH}{\mathcal{H}}
+\newcommand{\sI}{\mathcal{I}}
+\newcommand{\sJ}{\mathcal{J}}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\sM}{\mathcal{M}}
+\newcommand{\sN}{\mathcal{N}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\sP}{\mathcal{P}}
+\newcommand{\sQ}{\mathcal{Q}}
+\newcommand{\sR}{\mathcal{R}}
+\newcommand{\tS}{\mathcal{S}}
+\newcommand{\tT}{\mathcal{T}}
+\newcommand{\sU}{\mathcal{U}}
+\newcommand{\sV}{\mathcal{V}}
+\newcommand{\sW}{\mathcal{W}}
+\newcommand{\sX}{\mathcal{X}}
+\newcommand{\sY}{\mathcal{Y}}
+\newcommand{\sZ}{\mathcal{Z}}
+
+
+\bibliographystyle{plain}
+
+
+\title{From Hamiltonian Systems to Poisson Geometry}
+
+\author{Seth Musser}
+
+\date{TBD}
+
+\begin{document}
+
+\begin{abstract}
+We introduce Hamiltonian systems and derive an important stability result, along with giving some physical motivation.  We then move onto the generalization of these systems found in symplectic geometry.  Next we consider symplectic geometry's natural generalization, Poisson geometry.  After giving some definitions we present the motivating example of the torqueless Euler equations.  These motivate us to consider the abstract structure of Poisson geometry, but we first need to introduce some concepts from multi-vector calculus.  Finally we arrive at some important results connecting symplectic geometry and Poisson geometry, including the Darboux-Weinstein theorem.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\section{Introduction}
+
+A general time-independent \textit{Hamiltonian system} is one which has a smooth function $H\colon \Omega\subset \bbR^{2n} \rightarrow \bbR\colon z\mapsto H(z)$ such that $\Omega$ is open and
+\begin{align}
+\dot{x}=J\nabla H(x)\text{ and } x(0)=x_0, \ \ J=\begin{pmatrix} 0& I\\ -I& 0\end{pmatrix}
+\end{align}
+with $I$ being the $n\times n$ identity matrix and with $\nabla H(x)$ being the gradient $\nabla H$ evaluated at $x\in \bbR^{2n}$.  Further we have chosen to use $\dot{x}$ to represent $\td x/\td t$ and when necessary $\ddot{x}=\td^2 x/\td t^2$.  We call $H$ the \textit{Hamiltonian} of the system.  Since we have made sure that our definition of $H$ ensures that it is smooth, then we know by the existence and uniqueness theorems of ordinary differential equations that there exists some unique flow $\phi_t \colon \bbR^{2n}\rightarrow \bbR^{2n}$ that solves the system, and provides a diffeomorphism from $\bbR^{2n}$ onto itself [1].  This system is important in physical contexts, as we shall see, because it well describes classical mechanical systems, but also because it lends itself well to the analysis of nonlinear stability.
+
+If we are willing to introduce smooth manifold theory then we can generalize these results and make them much more powerful.  For example, we can drop the requirement that (1) holds and replace it with the weaker requirement that (1) holds only in local coordinates.  In this case the natural ambient space on which our dynamics occur is a manifold.  If we further abstractify, then we can move beyond local coordinates entirely and globally generate our dynamics from a two-form.  This is the realm of symplectic geometry, as we shall see.
+
+Sometimes even the more abstract symplectic geometry is not enough for the system we wish to describe.  For example, if in local coordinates we change $J$ to a matrix of the form $\begin{pmatrix} 0& I& 0\\ -I& 0& 0\\ 0& 0& 0\end{pmatrix}$ we acquire what is known as a \textit{non-canonical} Hamiltonian system.  This system will have extra invariants, given by the now non-trivial kernel of $J$.  Poisson geometry was built to handle this, and is a further abstraction of symplectic geometry.  Most of the paper is concerned with this, and once we have a few definitions and propositions under our belt we will introduce the torqueless Euler equations in the context of Poisson manifolds as a motivating example to guide us into the more geometric concerns of Poisson geometry.
+
+
+By the end of the paper we will prove some important theorems about the structure of Poisson manifolds, and state the splitting theorem.  However, to have space for this we assume a certain level of fluency in smooth manifold theory.  Lee's book Smooth Manifold Theory [3] is an excellent resource.  The stability section is suitable for any advanced calculus student and should be seen as a motivating section meant to grab the attention of a more physically minded reader.  The sections that follow assume familiarity with the results in chapters 1-16 of [3], and fluency in those in chapters 1-5, 8-11, and 14-16.
+
+
+
+\section{Basic Stability Results of Hamiltonian Systems}
+\begin{rmk}
+We note that given the flow mentioned above which solves the system $\phi_t \colon \bbR^{2n}\rightarrow \bbR^{2n}$ we have that
+\begin{align*}
+\frac{\td H}{\td t}(\phi_t(x_0))=& \nabla H(\phi_t(x_0))^T \dot{\phi_t}(x_0)+\frac{\partial H}{\partial t}(\phi_t(x_0))\\
+=& \nabla H(\phi_t(x_0))^TJ\nabla H(\phi_t(x_0),t)\\
+=& 0 
+\end{align*}
+where $v^T$ denotes the transpose of the vector $v\in \bbR^{2n}$.  The second line was arrived at since $H$ is independent of $t$, and the last because $v^TJv=0$ for all $v\in \bbR^{2n}$ if $J^T=-J$.
+\end{rmk}
+
+This is an important result in and of itself, as knowing quantities conserved by the flow has important physical implications, but it also leads to the following major result of nonlinear stability (wonderfully described in [4]).
+
+\begin{dfn}[Lyapunov Stability]
+Let $\phi_t\colon\Omega \subset \bbR^{2n}\rightarrow \bbR^{2n}$ be the flow which solves our system.  Further take $x*$ to be an equilibrium point of the flow, that is $\phi_t(x^*)=x^*$ for all times $t$.  Then we call $x^*$ a \textit{Lyapunov stable} point if for every $\epsilon>0$ there exists some $\delta>0$ such that if $\|x_0-x^*\|<\delta$ then $\|\phi_t(x_0)-x^*\|<\epsilon$ for all times $t\geq 0$.  If a system is not Lyapunov stable then we call it unstable.
+\end{dfn}
+
+\begin{thm}
+Let $x^*$ be an equilibrium point for a time-independent Hamiltonian system.  If the Hessian matrix of $H$ is definite at $x^*$ then $x^*$ is Lyapunov stable.
+\end{thm}
+\begin{proof}
+Let $\epsilon>0$.  Without loss of generality, because translation does not affect derivatives, we take $x^*=0$.  We then have $\phi_t(x_0)-x^*=\phi_t(x_0)$.  Note that since $\phi_t(0)=0$ then we may conclude that $0=J\nabla H(\phi_t(0))$, and since $J$ is invertible we see that $\nabla H(0)=0$.
+
+Now suppose that the Hessian matrix of $H$ is positive definite, then $x^*=0$ is a local minimum.  Thus there exists some $\mu>0$ such that $H(0)<H(x)$ for all $0<\|x\|<\mu$.  Take $r=\min(\epsilon, \mu)$ and $\xi=\min_{\|x\|=r}H(x)$, which we know is achieved for some $y\in \{x\mid \|x\|=r\}$ since $H$ is continuous.  Next take $A=\{ x \mid \|x\|<r \text{ and } H(x)<\xi\}$, again by $H$'s continuity, we know this is an open set which contains $x=0$ since $H(0)<H(y)$.  This means that there is some ball centered at zero $B_\delta\subset A$ with radius $\delta$.  Take $x_0$ such that $\|x_0\|<\delta$.  Then $H(x_0)<\xi$, but since $H$ is invariant, $H(\phi_t(x_0))=H(x_0)<\xi$.  Suppose that there existed some time $t_0$ such that $\|\phi_{t_0}(x_0)\|\geq \epsilon$, then by continuity of the flow with respect to time there must have been some time $t_1$ such that $\|\phi_{t_1}(x_0)\|=r$.  But then that means that $H(\phi_{t_1}(x_0))\geq \xi$, and we see by contradiction that if $\|x_0\|<\delta$ then $\|\phi_t(x_0)\|<\epsilon$ and we have Lyapunov stability.  The proof for negative definite is identical as one can, without loss of generality, replace $H$ with $-H$.
+\end{proof}
+
+\begin{rmk}
+We note that if we had some function $F \colon \bbR^{2n}\rightarrow \bbR^{2n}$ which is also invariant under the flow, and such that $x^*$ is a local extremum of $F$ then the proof works equally well.
+\end{rmk}
+
+To give a physical introduction to Hamiltonian systems we consider a classical mechanical system described by position and momentum $q,p\in \bbR^n$.  Namely this is a system which posses some smooth potential energy $V\colon \bbR^n\rightarrow \bbR \colon q\mapsto V(q)$ such that it obeys Newton's laws
+\[
+\dot{q}=p \ \  \ \ \dot{p}=-\frac{\partial V}{\partial q}.
+\]
+However, we see that if we take $H(p,q)=\|p\|^2/2+V(q)$ then this can be written as a Hamiltonian system if we take $x=(q,p)$.  Not only have we succeeded in formulating classical mechanical systems in terms of a Hamiltonian system, but the Hamiltonian we used is actually the total mechanical energy of the system.  Thus we automatically have the important result that energy is conserved in classical systems.
+
+Now we consider a specific example to illustrate the importance of stability.
+
+\begin{ex}
+Consider the simple pendulum described by a rigid massless rod with a mass attached to the end.  By rescaling we may treat all of the relevant quantities as unit.  Now let $\theta$ be the angle between the position of the pendulum when hanging straight down and its currect position.  We know from physics that this is a classical system with energy given by $H(q,\theta)=p^2/2+(1-\cos\theta)$.  So then by the above we see that it will obey the equations
+\[
+\dot{\theta}=p \ \  \ \ \dot{p}=-\sin\theta.
+\]
+
+We see that since $\grad H(p,\theta) = (p, \sin\theta)$ our equilibrium points occur at $(0, n\pi)$, where $n\in \bbN$.  We note that if $n$ is even, then this corresponds to the pendulum at rest with the mass hanging down; and if $n$ is odd then this corresponds to the pendulum at rest with the mass balanced above the rod's support.  Now we conduct the stability test of Theorem 1.1, letting $x\in \bbR^2$ be arbitrary.
+\begin{align*}
+\text{Hess } H_{(0,n\pi)}(x) =& \begin{pmatrix} x_1& x_2\end{pmatrix} \begin{pmatrix} 1& 0\\ 0& \cos(n\pi)\end{pmatrix} \begin{pmatrix} x_1\\ x_2\end{pmatrix}\\
+=& x_1^2+ (-1)^n x_2^2.
+\end{align*}
+By Theorem 2.3, we conclude that if $n$ is even then $(0,n\pi )$ is Lyapunov stable, but we cannot say anything above the Lyapunov stability of this point if $n$ is odd.  This makes intuitive sense, as we expect the hanging pendulum to be stable, but the balancing pendulum to be unstable.
+\end{ex}
+
+
+Having motivated physically the desire to look at Hamiltonian systems with stability theory and physical examples, we now move to generalizations.  The first is symplectic geometry, which we will show reduces to a Hamiltonian system in a special case.
+
+
+
+
+
+
+
+
+
+
+\section{Symplectic Geometry}
+In the following sections we will assume that $M$ refers to a smooth connected manifold, unless otherwise stated.
+
+\begin{dfn}
+A \textit{symplectic manifold} $(M,\omega)$ is a smooth manifold $M$, which is equipped with a closed, non-degenerate two-form $\omega$ (we call this form a \textit{symplectic form}).  In local coordinates $(U,x_1,\cdots, x_n)$ we will write this form as
+\[
+\omega_x=\sum_{i<j}{\omega_{ij}(x) \td x_i\wedge \td x_j}.
+\]
+\end{dfn}
+
+We note that the requirement that $\omega$ be non-degenerate means $M$ must be even dimensional.
+
+\begin{ex}
+The canonical example is $M=\bbR^{2n}$ with coordinates $(q_1,\cdots, q_n, p_1,\cdots, p_n)$, with the form
+\[
+\omega_0=\sum_{i=1}^{n}\td q_i\wedge \td p_i.
+\]
+We see that $\omega_0$ is clearly a closed two-form, since its coefficients are the identity.  It is also clear that it is non-degenerate upon application of $\omega_0$ to basis vectors.
+\end{ex}
+
+
+\begin{ex}
+Another example may be given by $M=S^2$, the $2$-sphere embedded in $\bbR^3$.  We take $\omega_p(u,v)=\langle p, u\times v\rangle$ where $\langle \cdot, \cdot\rangle\colon \bbR^3\times \bbR^3 \rightarrow \bbR$ is the standard inner product in $\bbR^3$ and $\times\colon \bbR^3\times \bbR^3\rightarrow \bbR^3$ is the cross product with $u,v\in T_pS^2$.  Note that this is the area form on $S^2$.  We can see that this form is closed because it is of top degree, and taking $v=u\times p$ we see that it is non-degenerate.
+\end{ex}
+
+%When we transform symplectic manifolds we are interested in transformations that not only preserve the underlying manifold, but also preserve the structure granted by the symplectic form.  It is with this in mind that we define the concept of symplectomorphism.
+
+%\begin{dfn}
+%Let $(M_1,\omega_1)$ and $(M_2,\omega_2)$ be $2n$-dimensional symplectic manifolds, and let $\phi\colon M_1\rightarrow M_2$ be a diffeomorphism.  Then, provided $\phi^* \omega_2=\omega_1$, that is that
+%\[
+%(\omega_2)_{\phi(p)}(\td \phi_p(u), \td \phi_p(v))=(\omega_1)(u,v),
+%\]
+%we call $\phi$ a symplectomorphism.
+%\end{dfn}
+
+%It turns out that, at least locally, all symplectic manifolds are symplectomorphic to the canonical example given in Example 1.  We state the following without proof (for proof look to Theorem 8.1 of [2] or to the special case of Theorem \textbf{INSERT SPLITTING THM \# HERE} where the bracket is nondegenerate).
+
+%\begin{thm}[Darboux]
+%Let $(M,\omega)$ be a $2n$-dimensional symplectic manifold, and let $p$ be any point in $M$.  Then there is a coordinate chart $(\sU, x_1,\cdots, x_{2n})$ centered at $p$ such that on $\sU$
+%\[
+%\omega=\sum_{i=1}^{n}{\td x_i\wedge \td x_{n+i}}.
+%\]
+%We call this chart a Darboux chart.
+%\end{thm}
+
+Given a few examples of these underlying manifolds we now wish to move to the dynamics on symplectic manifolds.
+
+\begin{dfn}
+Let $\sV(M)$ denote the smooth vector fields on $M$.
+\end{dfn}
+
+We recall that the interior product for differential forms is defined as follows.
+
+\begin{dfn}
+Let $X\in \sV(M)$ then $\imath_X$ is a map
+\[
+\imath_X \colon \Omega^p(M)\rightarrow \Omega^{p-1}(M)
+\]
+defined by the property that
+\[
+(\imath_X \omega)(X_1,\cdots, X_{p-1})= \omega(X, X_1, \cdots, X_{p-1})
+\]
+where $\omega\in \Omega^p(M)$ and $X_1,\cdots, X_{p-1}\in \sV(M)$.
+\end{dfn}
+
+We now give a name to the application of the interior product to a two-form.
+
+\begin{dfn}
+Let $M$ be a manifold and $\omega \in \Omega^2(M)$ a two-form.  Then the interior product $\imath$ induces a map from $\sV(M)$ to $\Omega^1(M)$ given by $X \mapsto \imath_X \omega$ .  We denote this map by
+\[
+\omega^{\flat} \colon \sV(M) \rightarrow \Omega^1(M) \colon X\mapsto \imath_X \omega
+\]
+\end{dfn}
+
+\begin{prop}
+If $(M,\omega)$ is a symplectic manifold, then $\omega^\flat \colon \sV(M)\rightarrow \Omega^1(M)$ is a bijection.
+\end{prop}
+\begin{proof}
+%Suppose that $X,Y\in \sV(M)$ are such that $\omega^\flat(X)=\omega^\flat(Y)$, then we see by linearity that $\omega^\flat(X-Y)=0$.  This is equivalent to requiring that $\omega(X-Y,Z)=0$ for any $Z\in \sV(M)$.  Since given a point $p\in M$ and some $v\in T_pM$ we may find some $Z\in \sV(M)$ such that $Z_p=v$, then we see that the non-degeneracy of $\omega$ means that $X=Y$.  Thus $\omega^\flat$ is an injective map.
+
+%Now take $(U,x_1,\cdots, x_n)$ to be local coordinates and take $X$ to be an arbitrary smooth vector field given by 
+%\[
+%X(x)=\sum_{i=1}^{n}{X_i(x) \frac{\partial}{\partial x_i}}.
+%\]
+%Then we see that:
+%\begin{align*}
+%\omega^\flat(X)=& \sum_{i<j} \omega_{ij}(x) \td x_i \wedge \td x_j(X,\cdot)\\
+%=& \sum_{j=1}^{n} \left(\sum_{i=1}^{n}X_i(x)\omega_{ij}(x)\right) \td x_j.
+%\end{align*}
+%Thus we see that $\omega^\flat$ is surjective if we have that given some one-form $\alpha\in\Omega^1(M)$ there exists some vector field $X$ such that $\alpha_j(x)=\sum_{i=1}^{n}{-\omega_{ji}(x)X_i(x)}$.  Since all of these functions are smooth, this amounts to solving the matrix equation $\Omega v=u$ at each point $x$ where $\Omega_{ij}=-\omega_{ji}$.  However, since $\omega$ is non-degenerate then we know that $\ker\Omega=\{0\}$, and thus that this matrix equation is always solvable.  So then we conclude that $\omega^\flat$ is surjective.
+
+Both injectivity and bijectivity follow directly form nondegeneracy.
+\end{proof}
+
+\begin{dfn}
+Let $(M,\omega)$ be a symplectic manifold and take $H\in C^\infty(M)$.  Then we define the \textit{symplectic Hamiltonian vector field} of $H$ to be the vector-field $X_H$ such that $\omega^\flat(X_H)=\td H$.
+\end{dfn}
+
+We note that we may always find such a vector field by Propostion 3.6, since it is just given by $X_H=(\omega^\flat)\inv(\td H)$.
+
+Now we are able to see that the orbits of symplectic Hamiltonian vector fields on the canonical symplectic manifold are exactly what we have described at the beginning of the paper.
+
+\begin{ex}
+Take $(\bbR^{2n},\omega_0)$ as our symplectic manifold.  Since we are in $\bbR^{2n}$ our local coordinates are just global coordinates, and we may globally expand $\omega^\flat(X)$ as we did in Proposition 3.6.  But when we do this we see that $(\omega_0)_{ij}(x)=J_{ij}$.  If we then want to solve the equation $X_H=(\omega_0^\flat)\inv (\td H)$ it requires solving the coefficient equation
+\[
+\frac{\partial H}{\partial x_j}= \sum_{i=1}^{n}(X_H)_i J_{ij}.
+\]
+Since $J\inv=J^T=-J$ then we see that $(X_H)_i = (-J\nabla H)_i$.  Now suppose that we have a particle with coordinates $x=(q_1,\cdots, q_n,p_1,\cdots, p_n)$ such that it traces out an orbit of $X_H$, i.e. $\dot{x}_i=X_H(x_i)$.  Then its dynamics will be given by 
+\[
+\dot{x}=-J\nabla H.
+\]
+\end{ex}
+
+As promised we have motivated the move to the more abstract symplectic geometry by showing that in the canonical case the dynamics on the symplectic manifold follow the definition of the Hamiltonian system (up to a sign).  They can also give more general structures, such as in Example 3.
+
+
+
+
+
+
+
+
+
+
+\section{Poisson Manifolds: Definition and Dynamics}
+
+Now we move onto a natural generalization of a symplectic manifold, that of the Poisson manifold.  At first the definition of a Poisson manifold looks quite different from that of a symplectic manifold, but we will find that they are in fact intimately connected, and in some sense a Poisson manifold is just a symplectic manifold with the requirement that $\omega$ be non-degenerate dropped.
+
+\subsection{Introduction}
+\begin{dfn}
+A \textit{Poisson bracket} on a manifold $M$ is a binary operation $\{\cdot, \cdot \} \colon C^\infty(M)\times C^\infty(M)\rightarrow C^\infty(M)$ satisfying:
+\begin{enumerate}
+
+\item[(i)] Skew-symmetry: $\{f,g\}=-\{g,f\}$;
+
+\item[(ii)] $\bbR$-bilinearity: $\{f,ag+bh\}=a\{f,g\}+b\{f,h\}$ for $a,b\in \bbR$;
+
+\item[(iii)] Jacobi identity: $\{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0$;
+
+\item[(iv)] Leibniz identity: $\{f,gh\}=g\{f,h\}+\{f,g\}h$.
+
+\end{enumerate}
+The pair $(M,\{\cdot,\cdot\})$ is called a \textit{Poisson manifold}.
+\end{dfn}
+
+The first three requirements are equivalent to the conditions we impose on a Lie algebra, and the last is equivalent to stating that the bracket is a derivation in each argument.
+
+\begin{ex}
+Consider $\bbR^{2n}$ with coordinates $(q_1,\cdots,q_n,p_1,\cdots,p_n)$ with the bracket given by
+\[
+\{f,g\}\defeq \sum_{i=1}^{n}\left(\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}-\frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}\right).
+\]
+It's clear that skew-symmetry, and $\bbR$-bilinearity is satisfied.  The Leibniz identity follows directly from the product rule for derivatives.  The proof of the Jacobi identity is slightly more involved, but is just computation and can be found in [6].
+
+This is known as the canonical bracket, and we shall later see that it is intimately connected to the canonical symplectic form $\omega_0$.
+\end{ex}
+
+As is often the case in analysis it is useful to restrict the relation we are considering to local coordinates, so that we gain an understanding of its local properties.  As we shall see, locally our bracket looks like the canonical bracket.
+
+\begin{prop}
+Let $U$ be an open neighborhood of $(M,\{\cdot,\cdot\})$ and $x_1,\cdot,x_n$ be local coordinates.  Then for $f,g\in C^\infty (M)$ we have that
+\[
+\{f,g\}=\sum_{i,j=1}^{n}{\{x_i,x_j\} \frac{\partial f}{\partial x_i} \frac{\partial g}{\partial x_j}}.
+\]
+\end{prop}
+\begin{proof}
+%First we note that by wisely choosing a partition of unity we may clearly see that $\text{support }\{f,g\}\subset \text{support }f\cap \text{support }g$, so it is well-defined to restrict the bracket to these local coordinates.
+
+%We see that $\{1,f\}=\{1\cdot 1,f\}=\{1,f\}1+1\{1,f\}=2\{1,f\}\implies \{1,f\}=0$ and thus that $\{c,f\}=0$ for any constant $c$, by linearity.  Now take $x_0\in U$ to be arbitrary.  Since $f,g\in C^\infty(U)$ we may Taylor expand to order 2 to see that:
+%\[
+%f(x)= f(x_0)+\sum_{i=1}^{n}{\frac{\partial f}{\partial x_i}(x_0) \sP_i(x-x_0)}+\sum_{l,m=1}^{n}{ \sP_l(x-x_0)F_{lm}(x)\sP_m(x-x_0)},
+%\]
+%and similarily with $g$, where $\sP_i$ is the projection onto the $x_i$ axis, and where $F_{lm}$ is some smooth function for all $l,m$.  We can see that the Leibniz identity gives us $\{fgh,\phi\}=fg\{h,\phi\}+f\{g,\phi\}h+\{f,\phi\}gh$.  So if we take $\sG_{rk}=\sum_{n,k}{\sP_r(x-x_0)G_{rk}(x)\sP_k(x-x_0)}$ and use this fact and the fact that $\{c,f\}=0$ for any constant $c$, we see that:
+%\begin{align*}
+%\{f,g\}(x)=& \sum_{i,j=1}^{n}\{x_i,x_j\}(x)\frac{\partial f}{\partial x_i}(x_0)\frac{\partial g}{\partial x_j}(x_0)\\
+%+ \sum_{l,m=1}^{n} &[\sP_l(x-x_0) F_{lm}(x) \{x_m, \sG_{rk}\}(x)+\sP_l(x-x_0)\{F_{lm},\sG_{rk}\}(x)\sP_m(x-x_0) \\
+%+& \{x_l, \sG_{rk}\}(x)F_{lm}(x)\sP_m(x-x_0)]
+%\end{align*}
+%Since $x_0$ was arbitrary, there is no reason we can't take $x=x_0$, which we do now.  But then the last term drops out and we have our result.
+The proof relies on using the fact that $f,g\in C^\infty(M)$ to Taylor expand them.  One can also see that (ii) and (iv) imply that $\{f,c\}=0$ for any constant $c$.  Then substituting the Taylor expansions and using this fact and a second application of (iv) to eliminate higher order terms we have the result.
+\end{proof}
+
+We may equivalently write this that $\{f,g\}=\nabla f^T \Pi \nabla g$ where $\Pi$ is the matrix, not necessarily constant, such that $\Pi_{ij}=\{x_i,x_j\}$.  If $\Pi$ is equal to the constant matrix $J$ then we see that we recover the canonical bracket.
+
+Now that we have some idea of the properties of the bracket itself we turn our inquiries to the type of dynamics that will be produced on our manifold by this bracket.  Once we have an understanding of this, then we are neatly motivated to consider the connections between Poisson and symplectic manifolds.
+
+
+
+
+
+\subsection{Dynamics Under the Bracket}
+
+
+\begin{dfn}
+Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold.  The \textit{Hamiltonian vector field} of $H\in C^\infty(M)$ is the vector field $X_H$ defined by:
+\[
+X_H(f)=\{H,f\}, \ \ \forall f\in C^\infty(M).
+\]
+The function $H$ is called the \textit{Hamiltonian function}.
+\end{dfn}
+
+The following proposition will be useful to us later.
+
+\begin{prop}
+For any $f,g\in C^\infty(M)$
+\[
+X_{\{f,g\}}=[X_f,X_g]
+\]
+where $[X,Y]$ indicates the Lie bracket of $X,Y\in \sV(M)$.
+\end{prop}
+\begin{proof}
+Take $f,g,h\in C^\infty(M)$.  We see:
+\begin{align*}
+X_{\{f,g\}}(h)=&\{\{f,g\},h\}\\
+=&\{f,\{g,h\}\}- \{g,\{f,h\}\} \text{ by Jacobi}\\
+=& X_f(X_g(h))-X_g(X_f(h))=[X_f,X_g](h).
+\end{align*}
+\end{proof}
+
+
+We know by the existence and uniqueness theorems from ordinary differential equations that provided we have a $C^\infty$, compact, connected Poisson manifold $M$ then we can find a solution to the problem of finding an orbit of the vector field $X_H$.  That is we can find some $x\colon (-T,T)\subset \bbR\rightarrow \bbR\colon t\mapsto x(t)$ such that $\dot{x}=X_H(x)=\{H,x\}$ with $x(0)=x_0$ and such that $T=\infty$; further, provided we are willing to let $T$ be finite, we may drop some of the other requirements, as seen in [1].
+
+To make the analogy with the dynamics expressed in the Hamiltonian systems given at the beginning of the paper we rewrite this in local coordinates.
+\begin{rmk}
+Let $(U,x_1,\cdots, x_n)$ be local coordinates and suppose that for each $i$ the dynamics are given by $\dot{x}_i=\{H,x_i\}$.  Then we see from Proposition 3.1 that the dynamics become
+\[
+\dot{x}=-\Pi \nabla H \ \ x(0)=x_0
+\]
+where we identified $x=(x_1,\cdots,x_n)$.  Locally then we see that the dynamics look similar to (1), with the constant matrix $J$ replaced with the matrix $-\Pi$.
+\end{rmk}
+
+Since the vector field $X_H$ was generated in a special way, that is from the Poisson bracket, we have a useful result about the dynamics of orbits of $X_H$.
+
+\begin{prop}
+Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold, and $H\in C^\infty(M)$ be a Hamiltonian function.  Then $f\in C^\infty(M)$ is constant along any orbit of $X_H$ if, and only if, $\{H,f\}=0$.  We further note $H$ is always constant along any orbit of $X_H$, and that if $f_1 \text{ and } f_2$ share this property, then so does $\{f_1,f_2\}$.
+\end{prop}
+\begin{proof}
+We know that $f$ is constant along any orbit of $X_H$ if, and only if, $X_H(f)=0$.  So by definition, our first assertion is true.  Further the skew-symmetry of the bracket reveals that $\{H,H\}=0$, and thus by the first part that $H$ is always constant along any orbit of $X_H$.  Lastly, by the Jacobi idenity and skew-symmetry, we see that $\{H,\{f_1,f_2\}\}=\{f_1,\{H,f_2\}\}-\{f_2,\{H,f_1\}\}=0$, since both $f_1$ and $f_2$ have the property that they are constant along any orbit of $X_H$.
+\end{proof}
+
+Thus we see that we retain the property discussed in the stability section of the preservation of the Hamiltonian under the flow it produces, which means that we can still use the stability results developed there.
+
+To further understand the dynamics of the problem, we investigate a series of functions which are more intrinsic to the bracket itself, and not the given Hamiltonian.  Namely, we look for functions which are preserved along any orbit $X_H$ for any Hamiltonian $H$, and call them Casimirs or Casimir invariants.
+
+\begin{dfn}
+Let $M$ be a smooth Poisson manifold.  A \textit{Casimir} of the Poisson bracket is a function $C\in C^\infty(M)$ such that:
+\[
+\{C,F\}=0 \ \ \forall F\in C^\infty(M).
+\]
+\end{dfn}
+
+\begin{rmk}
+In analogy with Remark 4.6 we see that in local coordinates we may choose $F=x_i$, to denote the projection onto each coordinate, and thusly locally any Casimir is characterized by the relation $\Pi \grad C=0$.  In other words, locally we may identify Casimirs with functions whose gradients are in the kernel of $\Pi$.
+\end{rmk}
+
+Next we wish to give a physical example which illustrates the ideas we have thus far been investigating, and leads us naturally into our next topic of discussion, the connections between symplectic geometry and Poisson manifolds.
+
+\begin{ex}[Torqueless Euler Equations]
+We consider the case of a rotating rigid body with no external torque.  Let $\bbR^3$ be identified with the space of angular momentum vectors $\bL=(L_x,L_y,L_z)$, and take the moment of inertia tensor to be given by
+\[
+I_P=\begin{pmatrix} I_x& 0& 0\\ 0& I_y& 0\\ 0& 0& I_z\end{pmatrix}
+\]
+in principal coordinates.  It is a result from physics that the energy of this body is given by
+\[
+H(\bL) = \frac{1}{2} \bL I_P \bL=\frac{L_x^2}{2I_x}+\frac{L_y^2}{2I_y}+\frac{L_z^2}{2I_z}.
+\]
+
+Now we define the bracket on $\bbR^3$ by
+\[
+\{f,g\}_R(\bL)=[\grad f(\bL)\times \grad g(\bL)]\cdot \bL=\grad f^T \Pi_R(\bL) \grad g \text{ where } \Pi_R(\bL)= \begin{pmatrix} 0& L_z& -L_y\\ -L_z& 0& L_x\\ L_y& -L_x& 0\end{pmatrix}
+\]
+and where the last expression is global, since we are in $\bbR^3$.  We have used the subscript $R$ to stand for rotation, and will use it later for ease of reference.
+
+It is obvious that conditions $(i), (ii),$ and $(iv)$ of a bracket are fulfilled.  Once again the Jacobi identity is the most lengthy to check, but involves only some vector calculus and is done in [4].
+
+Remark 5 allows us to quickly compute that
+\begin{align*}
+\{H,L_x\}_R=& \left(\frac{1}{I_z}-\frac{1}{I_y}\right)L_yL_z\\
+\{H,L_y\}_R =& \left(\frac{1}{I_x}-\frac{1}{I_z}\right)L_xL_z\\
+\{H,L_z\}_R=& \left(\frac{1}{I_y}-\frac{1}{I_x}\right)L_xL_y.
+\end{align*}
+But we know from physics that these are exactly the equations for a rotating rigid body with no external torque.  So then we see that $\dot{\bL}=\{H,\bL\}_R$ if we take the convention that $\{H,\bL\}_R=(\{H,L_x\}_R,\{H,L_y\}_R,\{H,L_z\}_R)$.  We thus see that the dynamics of a rotating rigid body without torque are described exactly as the orbits of the Hamiltonian vector field obtained on $(\bbR^3, \{\cdot, \cdot \}_R)$ with a Hamiltonian that is the total energy of the body.
+
+Next we turn to Remark 7 to identify Casimirs of this system.  We may solve the system with separation of variables, which reveals that any Casimir is of the form $f(L(\bL))$, where $f\colon \bbR\rightarrow \bbR$ and $L\colon \bbR^3\rightarrow \bbR \colon \bL\mapsto \sqrt{L_x^2+L_y^2+L_z^2}$.
+
+Thus for any choice of a Hamiltonian, the resulting dynamics will be constrained to live on a set on which $L$ is constant, namely a two-sphere of radius $L_0$ centered at the origin, which we denote by $S^2_{L_0}$.  We now restrict our bracket to such a sphere, so that we now take $M=S^2_{L_0}$ and $f,g\colon S^2_{L_0}\rightarrow \bbR$ to be smooth functions, with the bracket defined as before.  Given the domain of definition of $f$ and $g$ we see that $\grad f(\tr),\grad g(\tr) \in T_\tr S^2_{L_0}$, and thus the bracket restricted to this space becomes (to within scaling of $L$) identical to the symplectic form given in Example 3.3.  We note that if we are restricted to such spheres then up to a constant we have that $\{f,g\}=\omega(X_f,X_g)$ where $\omega$ is the two-form given in Example 2 and $X_f$ and $X_g$ are the Hamiltonian vector fields of $f$ and $g$, respectively.
+
+\end{ex}
+
+This example nicely illustrated a system where Poisson geometry was necessary to describe the dynamics, as the configuration space $\bbR^3$ could not be a symplectic manifold (since it is not of even dimension).  However, when we took account of the Casimirs of the system we found that our Poisson manifold $\bbR^3$ was actually made up of invariant symplectic manifolds $S^2_{L,\0}$ which were invariant regardless of the Hamiltonian.  Further when we restricted our bracket to these submanifolds then we saw it was intimately connected to the symplectic two-form on the submanifolds.  It turns out that all these results are general, though it will take some work to show it.
+
+
+
+
+
+
+\section{From Brackets to Bivectors}
+
+Before we can make these powerful conclusions about Poisson manifolds we must first build up a language of the natural dual to differential forms, namely, multivectors.
+
+\subsection{Multivectors: Definition and Application}
+
+Let $\sV(M)$ be the space of smooth vector fields on the manifold $M$.  We recall that differential $k$-forms can be described as smooth sections of the $k$th exterior power of the cotangent bundle of $M$, expressed as $\Omega^k(M)=\Gamma\left(\bigwedge^k T^* M\right)$.  Dually, we make the following definition.
+\begin{dfn}
+Let $k$-multivector fields be smooth sections of the $k$th exterior power of the \textit{tangent} bundle of $M$, or $\sV^k(M)=\Gamma\left(\bigwedge^k TM\right)$.
+\end{dfn}
+Just as $k$-forms take $k$ smooth vector fields and return a smooth function on the manifold, so do $k$-multivector fields take $k$ smooth differential forms and return a smooth function on the manifold.  Note that we have referenced the exterior product on smooth sections of $TM$; this is defined identically to the exterior product on smooth sections of $T^*M$, and unsurprisingly the same facts hold.   Knowing this we have the following useful result which generalizes the identification of vector fields with derivations.
+
+\begin{prop}
+Take $M$ to be a smooth manifold and $\phi\in\sV^k(M)$.  Then the relation
+\[
+\overline{\phi}(f_1,\cdots, f_k)= \phi(\td f_1,\cdots, \td f_k)
+\]
+establishes a one-to-one correspondence between $k$-multivector fields, $\phi$, and $\bbR$-multilinear alternating maps of degree $k$, $\overline{\phi}$, provided that we have 
+\begin{align}
+\overline{\phi}(f_1,\cdots, gh, \cdots, f_k)=g\overline{\phi}(f_1,\cdots, h,\cdots, f_k)+\overline{\phi}(f_1,\cdots, g,\cdots, f_k)h
+\end{align}
+or that $\overline{\phi}$ is a derivation in each argument.
+\end{prop}
+\begin{proof}
+%Let $\overline{\phi}$ be a $\bbR$-multilinear alternating map of degree $k$ which has property (2).  Then we may use the same process as in Proposition 3.1 to restrict to local coordinates, and conclude that if any $f_i$ is constant then $\overline{\phi}$ evaluates to zero.  Again, using the same process of expanding each $f_i$ and simplifying as in Proposition 3.1, we then conclude that in local coordinates
+%\begin{align*}
+%\overline{\phi}(f_1,\cdots, f_k)=& \sum_{i_1,\cdots, i_k =1}^{n}{\overline{\phi}(x_{i_1},\cdots, x_{i_k}) \frac{\partial f_1}{\partial x_{i_1}}\cdots \frac{\partial f_k}{\partial x_{i_k}}}\\
+%=& \sum_{i_1< \cdots <i_k} \overline{\phi}(x_{i_1},\cdots, x_{i_k}) \frac{\partial}{\partial x_{i_1}}\wedge %\cdots \wedge \frac{\partial}{\partial x_{i_k}} \left(\td f_1,\cdots, \td f_k\right)
+%\end{align*}
+%where the last relation follows from the properties of the wedge product, and the fact that $\overline{\phi}$ is alternating.  We now define $\phi\in \sV^k(M)$ in terms of these local coordinates as
+%\[
+%\phi = \sum_{I} \overline{\phi}(x_I)\frac{\partial}{\partial x_I}
+%\]
+%where $I=(i_1,\cdots, i_k)$, $i_1<\cdots <i_k$ is the $k$-upla which we sum over.  If we have that $\phi=\theta$, then by wisely choosing our 1-forms we may see that $\overline{\theta}(x_I)=\overline{\phi}(x_I)$, and consequently that $\overline{\theta}=\overline{\phi}$ (by reversing the process above).  Thus this identification is injective.  Finally, since the basis $\partial /\partial x_I$ spans $\sV^k(M)$ and since we may choose $\overline{\phi}(x_I)$ to be an arbitrary function, we see that the identification is surjective as well.
+
+This proof is identical to the proof which shows that there is a one-to-one identification of derivations with vector fields.
+\end{proof}
+
+\begin{cor}
+Given a Poisson manifold $(M,\{\cdot,\cdot\})$ there exists a bivector field $\pi\colon \Omega^1(M)\times \Omega^1(M)\rightarrow C^\infty(M)$ such that $\pi(\td f,\td g)=\{f,g\}$.  
+
+Further, given a manifold $M$ and a bivector $\pi$ on that manifold we can define a bracket $\{f,g\}=\pi(\td f,\td g)$ which satisfies the requirements $(i), (ii),$ and $(iv)$ on our Poisson bracket.
+\end{cor}
+\begin{proof}
+We see that requirements $(i), (ii),$ and $(iv)$ are equivalent to defining a $\bbR$-multilinear alternating map of degree 2, that satisfies requirement (2) of Proposition 3.3.  The result follows directly from the proposition.  Note that the expression of this statement in local coordinates is equivalent to that brought up at the beginning of this discussion on multivector fields.
+\end{proof}
+
+However, it is not true in general that the bracket defined by an arbitrary bivector will satisfy the Jacobi identity, so we turn to a relation which will help us ensure it does.
+
+\subsection{Schouten Bracket and Push-forward}
+
+\begin{dfn}[Schouten bracket]
+Let $\phi \in \sV^k(M)$ and $\xi\in \sV^l(M)$ be multivector fields and $\overline{\phi}, \overline{\xi}$ be their associated multilinear maps as given to us by Proposition 3.3.  The Schouten bracket of $\phi$ and $\xi$ is the multivector field $[\phi,\xi]\in \sV^{k+l-1}(M)$ defined by
+\[
+[\phi,\xi]=\phi \circ \xi -(-1)^{(k-1)(l-1)}\xi \circ \phi,
+\]
+where we have defined
+\[
+\xi\circ \phi (\td f_1,\cdots, \td f_{k+l-1}) = \sum_\sigma (-1)^{\text{sgn}(\sigma)} \overline{\xi}\left( \overline{\phi} ( f_{\sigma(1)},\cdots, f_{\sigma(k)}),f_{\sigma(k+1)},\cdots, f_{\sigma(k+l-1)}\right),
+\]
+and where $\sigma$ is an arbitrary $(k,l-1)$ shuffle.
+\end{dfn}
+
+It is possible to show that the Schouten bracket may be viewed as the natural extension of the Lie bracket on vector fields to multivector fields, but we instead turn towards something more immediately relevent.
+
+\begin{rmk}
+We may see that if we have an arbitrary bivector $\pi \in \sV^2(M)$ and its associated bracket $\overline{\pi}(\cdot,\cdot)=\{\cdot,\cdot \}$, given by Corollary 3.2, then 
+\begin{align*}
+[\pi,\pi](\td f_1,\td f_2,\td f_3)=& 2(\pi \circ \pi)(\td f_1,\td f_2, \td f_3)\\
+=& 2\left(\{ \{f_1,f_2\},f_3\}+ \{\{f_3,f_1\},f_2\}+\{\{f_2,f_3\},f_1\}\right).
+\end{align*}
+Thus $[\pi,\pi]=0$ is equivalent to satisfaction of the Jacobi identity by the associated bracket.
+\end{rmk}
+
+This fact means that we may now make an equivalent definition of a Poisson manifold, but one which will be more useful to us later in our analysis.
+
+\begin{dfn}
+Let $M$ be a manifold and $\pi \in \sV^2(M)$.  If $[\pi,\pi]=0$ then we call this a Poisson structure on $M$.  A pair $(M,\pi)$ where $\pi$ is a Poisson structure on $M$ is called a Poisson manifold.
+\end{dfn}
+
+The Schouten bracket has one other important quality, namely that it transforms nicely under a push-forward, which we now define.  Just as a smooth map $\Phi\colon M\rightarrow N$ induces a linear map $\td_p \Phi \colon T_p M\rightarrow T_{\Phi(p)}N$ we also know it induces the linear map on the exterior product of these spaces:
+\[
+(\td_p \Phi)_* \colon \wedge^k T_p M \rightarrow \wedge^k T_{\Phi(p)}N
+\]
+which is just the extension of $\td_p \Phi$ with the requirement that it respects the exterior algebra.
+
+The map $(\td_p \Phi)_*$ may be defined pointwise, but it does not in general map multivector fields to multivector fields.  For example if $k=1$ and $\Phi$ is not injective for $x\in M$ then there is no way to decide which of multiple vectors to assign to a point.  However, when this does not occur we make the following definition.
+\begin{dfn}
+Let $\Phi\colon M\rightarrow N$ be a smooth map.  Two $k$-vector fields $\phi \in \sV^k(M)$ and $\xi\in \sV^k(N)$ are said to be $\Phi$-related if
+\[
+\xi_{\Phi(p)}=(\td_p \Phi)_* \phi_p, \ \ \ \forall p\in M.
+\]
+We then write $\xi=\Phi_*\phi$.
+\end{dfn}
+
+However, suppose that $\Phi$ is not surjective, then $\xi$ could still be $\Phi$-related to $\phi$, yet not be fully determined by $\phi\in \sV^k(M)$ and $\Phi\colon M\rightarrow N$.  When $\xi$ \textit{is} fully determined, we call $\Phi_* \phi$ the push-forward of $\phi$ by the map $\Phi$.  From the linearity properties of $(\td_p\Phi)_*$ it is clear that the push-forward is linear.
+
+We now see the Schouten bracket's properties under $\Phi$-relation.
+
+\begin{prop}
+Let $\Phi\colon M\rightarrow N$ be a smooth map, $\phi^1 \sV^k(M)$,  $\phi^2\in \sV^k(N)$, $\xi^1\in \sV^l(M)$, and $\xi^2\in \sV^l(N)$.  If $\phi^2 = \Phi_* \phi^1$ and $\xi^2=\Phi_* \xi^1$ then
+\[
+[\phi^2,\xi^2]=\Phi_*[\phi^1,\xi^1].
+\]
+\end{prop}
+\begin{proof}
+Let $\overline{\phi}^i,\overline{\xi}^i$ be the associated multilinear maps and take $x\in M$.  Further, take $f_1,\cdots, f_k$ to be arbitrary smooth functions on some open region $U\subset N$.  Then we see that
+\begin{align*}
+\overline{\phi}^1(f_1\circ \Phi,\cdots, f_k \circ \Phi)(x)=& \phi_x^1( (\td f_1)_{\Phi(x)}\circ \td \Phi_x,\cdots, (\td f_k)_{\Phi(x)}\circ \td \Phi_x)\\
+=& [(\td \Phi_x)_* \phi_x^1](\td f_1,\cdots, \td f_k)\\
+(\overline{\phi}^2(f_1,\cdots, f_k)\circ \Phi)(x)=& \phi^2_{\Phi(x)}(\td f_1,\cdots, \td f_k).
+\end{align*}
+By appropriate choice of these arbitrary functions we conclude that $\phi^1$ and $\phi^2$ are $\Phi$-related if, and only if
+\[
+\overline{\phi}^1(f_1\circ \Phi,\cdots, f_k\circ \Phi)= \overline{\phi}^2(f_1,\cdots, f_k)\circ \Phi
+\]
+and likewise for $\xi^1$ and $\xi^2$.  But then we immediately see that
+\[
+\overline{\phi^1\circ \xi^1}(f_1\circ \Phi,\cdots, f_{k+l-1}\circ \Phi) = \overline{\phi^2 \circ \xi^2}(f_1,\cdots, f_{k+l-1})\circ \Phi
+\]
+by substitution.  The linearity of $\Phi$-relation then gives us our result.
+\end{proof}
+
+\subsection{Interior Product}
+
+We define the interior product for multivector fields, defined in an identical fashion to the interior product for forms.
+
+\begin{dfn}
+Let $\phi \in \sV^k(M)$ and $\alpha \in \Omega^1(M)$.  Then we define the interior product of $\phi$ by $\alpha$ by $\imath_\alpha \phi \in \sV^{k-1}(M)$ such that
+\[
+\imath_\alpha \phi(\alpha_1,\cdots, \alpha_{k-1})=\phi(\alpha, \alpha_1,\cdots, \alpha_{k-1}).
+\]
+\end{dfn}
+
+It is not difficult to verify that this interior product has the same properties as the interior product for differential forms.  We are interested, however, in a specific type of interior product on multivector fields similar to $\omega^\flat$ defined in Section 2.
+
+\begin{dfn}
+Let $M$ be a manifold and $\pi\in \sV^2(M)$ a bivector field.  Then the interior product $i$ gives a map from $\Omega_1(M)$ to $\sV(M)$ given by $\alpha \mapsto \imath_\alpha \pi$.  We denote this map by
+\[
+\pi^{\sharp}\colon \Omega^1(M)\rightarrow \sV(M).
+\]
+\end{dfn}
+
+
+\section{Structure of Poisson Manifolds}
+
+
+%In our example of the torqueless Euler equations for a rotating rigid body we saw that we could find a single Casimir (that was not a constant).  Further we saw that on submanifolds of our Poisson manifold where this Casimir evaluated to a constant we recovered symplectic manifolds.  Given this example we have some suspicion that if we have a Poisson bracket whose only Casimirs are constants, then we will recover a symplectic manifold.  We will now show this in the language of Poisson structures instead of Poisson brackets.  We lose nothing in this analysis, as Remark 6 shows.
+
+%Just as a non-degenerate two form $\omega\colon TM\times TM \rightarrow C^\infty(M)$ is called non-degenerate if at every $x$, the map $\omega_x\colon T_xM\times T_xM\rightarrow \bbR$ is non-degenerate, we make the following definition for bivectors.
+
+%\begin{dfn}
+%We call a bivector field $\pi \colon T^*M\times T^*M \rightarrow C^\infty(M)$ non-degenerate if for every $x\in M$ we have that if $\pi(x) (u,v)=0$ for every $v\in T_x^*M$ then $u=0\in T_x^*M$.
+%\end{dfn}
+
+%\begin{rmk}
+%Let $\pi$ be a Poisson structure on $M$ and $\{\cdot, \cdot \}$ be its associated bracket.  Suppose that $\pi$ is non-degenerate, then this means that for every $x$ we have that if $\{f,g\}(x)=0$ for every $g\in C^\infty(M)$, then $\td f =0 \in T_x^*M$ (where we have used the fact that the cotangent space at $x$ is defined by the differentials of smooth functions on $M$).  But applying $\td f$ to the appropriate basis vectors of $T_xM$ we see that this means $f=c$ locally, where $c$ is a constant.  The exact same argument applies in reverse, so that if we have a Poisson bracket on $M$ which only has constant Casimirs, then our Poisson structure is non-degenerate.  In local coordinates nondegeneracy is then equivalent to $\text{ker}(\Pi_x)=\{0\}$ for all $x\in M$.
+%\end{rmk}
+
+Now that we have formalized most of the multi-vector language we will be using from this point forward we see its power in allowing us to use some of the more important results of smooth manifold theory.
+
+
+In the previous section given $\pi \in \sV^2(M)$ we defined $\pi^\sharp \colon \Omega^1(M)\rightarrow \sV(M)$.  If we consider this pointwise, we recover the linear map $\pi^\sharp_x \colon T^*_xM\rightarrow T_x M$ which can be extended to $\pi^\sharp \colon T^*M\rightarrow TM$.
+
+\begin{dfn}
+We say that the rank of a bivector field $\pi$ at $x\in M$ is the rank of the map $\pi^\sharp_x \colon T^*_xM\rightarrow T_x M$.  In general the rank of the bivector field will vary from point to point.
+\end{dfn}
+
+There are three nested major cases to consider, that for which $\pi^\sharp_x$ has top rank for all $x$, that for which it is constant for all $x$, and that for which it is allowed to vary.  In keeping with the theme of the paper we will build up results for each of these cases.  We give the first two their own name.
+
+\begin{dfn}
+A \textit{non-degenerate Poisson structure} $\pi\in \sV^2(M)$ is a Poisson structure whose rank is constant and always equal to $\dim M$, and a \textit{non-degenerate Poisson manifold} is a manifold $(M,\pi)$ whose Poisson structure is regular.
+\end{dfn}
+
+\begin{dfn}
+A \textit{regular Poisson structure} $\pi \in \sV^2(M)$ is a Poisson structure whose rank is constant, and a 
+\textit{regular Poisson manifold} is a manifold $(M,\pi)$ whose Poisson structure is regular.
+\end{dfn}
+
+We once again turn to the torqueless Euler equations for an example.
+
+\begin{ex}
+We again consider our Poisson manifold to be $(\bbR^3, \{\cdot, \cdot \}_R)$.  Since we are in $\bbR^3$ then $T_\bL^*\bbR^3 \cong \bbR^3$ and $T_\bL\bbR^3 \cong \bbR^3$.  As remarked in Example 4.10 we know that since we are in $\bbR^3$ then local coordinates are automatically global.  Thus we see that the induced bivector field is given by $\pi_\bL(u,v)=u^T \Pi_R(\bL) v$ for $u,v\in T^*_\bL \bbR^3 \cong \bbR^3$.  One may compute that $\text{rank}\Pi_R=2$ for all $\bL\in \bbR^3$.  Thus we see that $(\bbR^3,\{\cdot,\cdot\}_R)$ is a regular Poisson manifold, which is nonetheless degenerate.
+\end{ex}
+
+First we investigate the special case of non-degenerate Poisson manifolds.
+
+
+
+\subsection{Non-degenerate Poisson Manifolds}
+
+\begin{rmk}
+We see that if $\pi$ is a non-degenerate Poisson structure then $\pi^\sharp$ is a bijection, and thus for every $x\in M$ we have that if $\pi_x(u,v)$ for all $v\in T^*_x M$ then $u=0\in T^*_x M$.
+\end{rmk}
+
+We may characterize non-degeneracy in terms of Casimirs as well.
+
+\begin{rmk}
+Let $\pi$ be a Poisson structure on $M$ and $\{\cdot, \cdot \}$ be its associated bracket.  Suppose that $\pi$ is non-degenerate, then this means that for every $x$ we have that if $\{f,g\}(x)=0$ for every $g\in C^\infty(M)$, then $\td f =0 \in T_x^*M$ (where we have used the fact that the cotangent space at $x$ is defined by the differentials of smooth functions on $M$).  But applying $\td f$ to the appropriate basis vectors of $T_xM$ we see that this means $f=c$ locally, where $c$ is a constant.  The exact same argument applies in reverse, so that if we have a Poisson bracket on $M$ which only has constant Casimirs, then our Poisson structure is non-degenerate.  In local coordinates nondegeneracy is then equivalent to $\text{ker}(\Pi_x)=\{0\}$ for all $x\in M$.
+\end{rmk}
+
+Note that since we have been assuming $M$ to be a connected manifold, we have glossed over some subtleties that may have arisen if we had dropped this assumption.
+
+Given the multivector language we have established we are now in a place to verify the suspicion which arose in the example of the Euler equations that if we have a Poisson manifold with only constants as Casimirs, then this is really a symplectic manifold.
+
+\begin{thm}
+There is a one-to-one correspondence between non-degenerate bivector fields $\pi \in \sV^2(M)$ and non-degenerate two-forms $\omega \in \Omega^2(M)$ given by 
+\[
+\omega^\flat = (\pi^\sharp)\inv \longleftrightarrow \pi^\sharp=(\omega^\flat)\inv.
+\]
+Under this identification of $\pi$ with $\omega$ we have that
+\[
+[\pi,\pi](\alpha,\beta,\gamma)= \td \omega (\pi^\sharp(\alpha), \pi^\sharp(\beta), \pi^\sharp(\gamma)), \ \ \alpha, \beta,\gamma \in \Omega^1(M).
+\]
+\end{thm}
+\begin{proof}
+The first part of this proof is identical to the proof given in Proposition 3.6, which allows us to demonstrate that both $\pi^\sharp$ and $\omega^\flat$ are bijections.  However, given their domains, we immediately have the one-to-one correspondance with the properties we wished to find.
+
+Since it is enough to check that the relation above holds pointwise, we may restrict our consideration to the case where $\alpha,\beta,\gamma$ are exact 1-forms.  Let $\overline{\pi}(\cdot, \cdot)=\{\cdot, \cdot\}$ where this bracket does not necessarily satisfy the Jacobi identity.  From Remark 5.5 we see that
+\[
+[\pi,\pi](\td f_1,\td f_2, \td f_3)=2\left(\{\{f_1,f_2\},f_3\}+\{\{f_3,f_1\},f_2\}+\{\{f_2,f_3\},f_1\}\right).
+\]
+
+We use the invariant formulation of the exterior differential (described in Proposition 14.32 of [3]) to see that:
+\begin{align*}
+\td \omega(X,Y,Z)=&X(\omega(Y,Z))+Y(\omega(Z,X))+Z(\omega(X,Y))\\
+-& \omega([X,Y],Z) - \omega([Z,X],Y)-\omega([Y,Z],X).
+\end{align*}
+We then take $X=\pi^\sharp(\td f_1), Y=\pi^\sharp(\td f_2),$ and $Z=\pi^\sharp(\td f_3)$.  We see that:
+\begin{align*}
+\omega(\pi^\sharp(\td f_i), \pi^\sharp(\td f_j))=& \langle \omega^\flat(\pi^\sharp(\td f_i)), \pi^\sharp(\td f_j)\rangle,\\
+=& \langle \td f_i , \pi^\sharp(\td f_j)\rangle\\
+=& \pi(\td f_j, \td f_i)=-\{f_i,f_j\}
+\end{align*}
+where we have used the relation $\omega^\flat=(\pi^\sharp)\inv$.  If we use this, and the relation estabilished in Proposition 4.5 that $[\pi^\sharp(\td f_i),\pi^\sharp(\td f_j)]=\pi^\sharp(\{f_i,f_j\})$, we see that
+\[
+\td \omega(\pi^\sharp(\td f_1), \pi^\sharp(\td f_2), \pi^\sharp(\td f_3))=2\left(\{\{f_1,f_2\},f_3\}+\{\{f_3,f_1\},f_2\}+\{\{f_2,f_3\},f_1\}\right)
+\]
+and we have our relation.
+\end{proof}
+
+\begin{cor}
+Let $(M,\pi)$ be a Poisson manifold with a non-degenerate Poisson structure.  Then it is a symplectic manifold, with $\omega$ found from the one-to-one correspondence shown in Theorem 6.7.  Similarily if $(M,\omega)$ is a symplectic manifold, then it is also a Poisson manifold with a non-degenerate Poisson structure.
+\end{cor}
+\begin{proof}
+By Theorem 6.7 we see that if $\pi$ is a Poisson structure, i.e. $[\pi,\pi]=0$, then its associated two-form $\omega$ will be closed, and vice versa.  With the correspondence estabilshed by Theorem 3.1, we may then conclude.
+\end{proof}
+
+Then, as promised, we see that a Poisson manifold with a bracket which has no non-constant Casimirs is really just a symplectic manifold.  Now we consider the case where $\pi$ is allowed to have degeneracies.
+
+
+\subsection{Regular Poisson Manifolds}
+
+
+In order to generalize the result of the torqueless Euler equations we must first discuss what exactly it means to be a submanifold of a Poisson manifold.  
+
+We will also rely on the material in appendix A where there are some definitions and theorems related to distributions and foliations of smooth manifolds.  Lee [3], Chapter 19 is an excellent reference and gives proofs of all of the theorems we merely state here.  For each important result the relavent theorem or proposition in [3] is given.
+
+\begin{dfn}
+A Poisson submanifold of a Poisson manifold $(M,\pi_M)$ is a Poisson manifold $(N,\pi_N)$ together with an injective imersion $i\colon N\hookrightarrow M$ which has the property that $i_*\pi_N =\pi_M$.
+\end{dfn}
+
+Since we view $i$ as an inclusion we identify $\td_x i(T_x N)$ with a subspace of $T_{i(x)}M$.  Before we look at foilations of regular Poisson structures we must prove the following lemma.
+
+\begin{lem}
+Let $(M,\pi_M)$ be a Poisson manifold.  Given an immersed submanifold $N\hookrightarrow M$ there is at most one Poisson structure $\pi_N$ on $N$ that makes $(N,\pi_N)$ into a Poisson manifold.  This happens if, and only if, $\text{Im}(\pi_M)^\sharp_x \subset \td_x i(T_xN)$ for all $x\in N$.
+\end{lem}
+\begin{proof}
+We know that if $(N,\pi_N)$ is a Poisson manifold then $\pi_N$ is $i$-related to $\pi_M$, in other words $(\td_x i)_* (\pi_N)_x =(\pi_M)_{i(x)}$ for all $x\in N$.  However, if we look back to the definition of $i$-relation we see that this means each co-vector $\pi$ is evaluated at is pulled back by $i$.  So then this equivalently means:
+\[
+\td_x i \circ (\pi_N)^\sharp_x \circ (\td_x i)^* = (\pi_M)^\sharp_{i(x)}.
+\]
+We note that since $i$ is an immersion, then $\td_x i$ is injective.  Thus we see that $\pi_N$ is unique.  Further, since $(\pi_N)^\sharp_x \circ (\td_x i)^* \in T_x N$ we see that if $(N,\pi_N)$ is a Poisson submanifold then $\text{Im}(\pi_M)^\sharp_x \subset \td_x i(T_x N)$.
+
+Now suppose that $N$ is a submanifold with the injective immersion $i\colon N\hookrightarrow M$ such that $\text{Im}(\pi_M)^\sharp_x \subset \td_x i(T_x N)$.  We want to show that there exists a unique smooth $\pi_N\in \sV^2(N)$ such that $(\pi_M)_x^\sharp$ factors as:
+\[
+\begin{tikzcd}
+T^*_x M\arrow{r}{(\pi_M)_x^\sharp} \arrow[swap]{d}{(\td_x i)^*} & T_xM \arrow{d}{\td_x i} \\
+T^*_x N  \arrow{r}{(\pi_N)_x^\sharp} & T_x N.
+\end{tikzcd}
+\]
+Since $\td_x i$ is injective and $\text{Im}(\pi_M)^\sharp_x\subset \td_x i(T_xN)$ we have existance.  To establish uniqueness we must check that for $\alpha,\beta\in T^*_xM$ such that $\alpha(u)=\beta(u)$ for $u\in \td_x i(T_x N)$ we have $(\pi_M)_x^\sharp(\alpha)=(\pi_M)_x^\sharp(\beta)$.  Take $\gamma \in T_x^*M$ to be arbitrary, and $\langle\cdot,\cdot\rangle$ to denote evaluation.  Then we see that:
+\begin{align*}
+\langle (\pi_M)^\sharp_x (\alpha)-(\pi_M)^\sharp_x(\beta),\gamma\rangle=& \langle (\pi_M)^\sharp_x(\alpha-\beta),\gamma\rangle\\
+=& -\langle \alpha-\beta, (\pi_M)^\sharp_x(\gamma)\rangle.
+\end{align*}
+But since $(\pi_M)^\sharp_x(\gamma)\in \td_x i(T_xN)$ we see that this evaluates to zero, and we have found such a unique smooth (smoothness is automatic) $\pi_N$ with the factorization shown below.
+
+Now observe that $[\pi_N,\pi_N]=0$.  By Proposition 5.8 we see that
+\[
+[\pi_M,\pi_M]=i_*([\pi_N,\pi_N]),
+\]
+with $i$ an immersion.  This shows that if $\text{Im}(\pi_M)^\sharp_x\subset \td_x i(T_xN)$ then $N$ has a unique Poisson structure so that it is a Poisson submanifold.
+\end{proof}
+
+Now we are able to prove an extremely powerful result about regular Poisson manifolds.
+
+\begin{dfn}
+Let $M$ be a smooth manifold, and $N$ be an immersed submanifold via the inclusion map $i\colon N\hookrightarrow M$.  Then let $T_NM$ be the restriction of the tangent bundle on $M$ to $N$, that is the pullback of the tangent bundle on $M$ to a vector bundle on $N$ via $i$, and likewise for $T^*_NM$.
+\end{dfn}
+
+\begin{thm}
+Let $(M,\pi)$ be a regular Poisson manifold.  Then $\mathrm{Im}\pi^\sharp$ is an integrable distribution.  Each leaf $S$ of $\mathrm{Im} \pi^\sharp$ is a Poisson submanifold of $(M,\pi)$ and the induced Poisson structure $\pi_S \in \sV^2(S)$ is non-degenerate.
+\end{thm}
+\begin{proof}
+We see that $\text{Im}\pi^\sharp_x \subset T_x M$, and since $\pi$ is a regular Poisson structure this subspace has the same dimension for every $x$.  So then $\text{Im}\pi^\sharp$ is a distribution.  Since it is spanned by smooth vector fields of the form $X_H=\pi^\sharp(\td H)$ for $H\in C^\infty(M)$ we know that it is a smooth distribution.  Further, since we showed earlier that $X_{\{f,g\}}=[X_f,X_g]$ we now see that it is involutive.  Then by the Global Frobenius Theorem we see that $\text{Im}\pi^\sharp$ is completely integrable, and forms a foliation of $M$.
+
+Let $S$ be a leaf of this foliation and take $i\colon S\hookrightarrow M$ to be the inclusion map.  Since $S$ is a leaf $\text{Im}\pi^\sharp_x =T_x S$ for all $x\in S$, and since $i$ is an inclusion we see that $T_x S=\td_x i(T_x S)$.  So then we can apply the previous lemma to conclude that $S$ is a Poisson submanifold.
+
+Since $T_xS=\text{Im}\pi^\sharp_x=T_xS$ for all $x\in S$ the induced Poisson structure $\pi_S$ on this leaf satisfies
+\[
+\pi^\sharp(\alpha)=\pi^\sharp_S(\alpha|_S), \ \ \forall \alpha \in T^*_SM
+\]
+that is $\pi^\sharp$ is described by the induced Poisson structure on $S$ acting on one-forms restricted to the domain of $S$.  But this means that $\text{Im}\pi^\sharp_S=TS$ and we see that $\pi_S$ is non-degenerate.
+\end{proof}
+
+We thus see that a regular Poisson manifold is foliated into symplectic leaves of dimension equal to the rank of $\pi^\sharp_x$ for any $x\in M$, since this is the rank of the distribution $\text{Im}\pi^\sharp$.  We use symplectic leaves to mean leaves on which the induced Poisson structure is non-degenerate, a denotation which follows from Corollary 6.8.
+
+\begin{ex}
+Again we consider the torqueless Euler equations.  As stated in Example 6.4 $(\bbR^3,\{\cdot,\cdot\}_R)$ is a regular Poisson manifold, which we now \textit{rigorously} see is foliated into leaves which are two spheres centered at the origin.  We also can now rigorously see that the induced Poisson structure on these leaves is non-degenerate, or has no non constant Casimirs, and thus that they are symplectic.
+\end{ex}
+
+Thus the dynamics on a Poisson manifold can be totally described by a collection of Casimirs, and the symplectic structure on the leaf the dynamics are constrained to.  This is an extremely powerful global result, and when we turn to the general case we will not be able to give such a useful global result (at least not one that is elementary), but we can find a powerful local result.
+
+
+\subsection{General Case}
+
+Unfortunately a paper cannot address everything, and length constraints force us to mostly state the results of the general case without proof.
+
+However, Lectures on Poisson Geometry [4] provides a good resource to investigate the following concepts.
+
+\begin{dfn}
+We let
+\[
+(TN)^\circ=\{\alpha \in T^*_N M \colon \alpha(v), \forall v\in T_NM\}
+\]
+\end{dfn}
+
+\begin{dfn}
+A \textit{Poisson transversal} of a Poisson manifold $(M,\pi)$ is a submanifold $N\subset M$ such that, at every point $x\in N$, we have 
+\[
+T_x M=T_x N \oplus \pi^\sharp(T_x N)^\circ.
+\]
+\end{dfn}
+
+These definitions lead to a rather large collection of lemmas and theorems, which we do not state.  However, they ultimately lead to the following major theorem.
+
+\begin{thm}[Splitting Theorem]
+Let $(M,\pi)$ be a Poisson manifold and $N\subset M$ a Poisson transversal of codimension $2n$.  For any $\xi_0\in N$ there are local coordinates 
+
+$(U,p_1,\cdots, p_n,q_1,\cdots, q_n, x_1,\cdots, x_m)$ centered at $\xi_0$ such that $N\cap U=\{p_1=\cdots =p_n=q_1=\cdots=q_n=0\}$ and 
+\[
+\pi |_U=\sum_{i=1}^{n}\frac{\partial}{\partial p_i}\wedge \frac{\partial}{\partial q_i}+\pi_N |_{N\cap U}.
+\]
+\end{thm}
+
+Likely the most important result in elmentary Poisson geometry is the Darboux-Weinstein theorem which here is a corollary of the Splitting Theorem.
+
+\begin{cor}[Darboux-Weinstein Theorem]
+Let $(M,\pi)$ be a Poisson manifold, and assume that $\mathrm{rank}\pi_{\xi_0}=2n$.  Then there exist coordinates
+
+$(U,p_1,\cdots, p_n,q_1,\cdots, q_n,x_1,\cdots, x_m)$ centered at $\xi_0$ such that:
+\[
+\pi|_U = \sum_{i=1}^{n}\frac{\partial}{\partial p_i}\wedge \frac{\partial}{\partial q_i}+\sum_{a,b=1}^{m}\phi^{ab}(x)\frac{\partial}{\partial x^a}\wedge \frac{\partial}{\partial x^b}
+\]
+where the $\phi^{ab}(x)$ are smooth functions of $(x^1,\cdots, x^m)$ such that $\phi^{ab}(0)=0$.
+\end{cor}
+
+This is a very powerful local result.  It says that locally our Poisson manifold looks like the canonical bracket, with degeneracy allowed, that is we now replace $\Pi=J$ with $\Pi=\begin{pmatrix} J& 0\\ 0& 0\end{pmatrix}$ in local coordinates.  Thus locally our dynamics are uninteresting, especially in the non-degenerate case, where our symplectic manifold looks locally like the canonical example.  Globally, however, the non-regular case poses some important open questions.
+
+
+\section{Further Topics}
+
+We saw that Poisson geometry allowed us to describe some classical mechanical systems which were inadequately described by symplectic geometery, such as that of a rotating rigid body without external torque.  Despite this, after moving through several levels of abstraction we now see that Poisson geometry is in some sense (locally) identical to symplectic geometry with the non-degeneracy requirement removed.  This, and the fact that Poisson systems have clear invariants, means that the stability results we initially described still hold.  This is yet another reason we might want to describe physical systems in the language of Poisson geometry.
+
+However, we can still go further in our campaign to abstractify.  For example if we allow $M$ to be locally diffeomorphic to a Banach space instead of $\bbR^n$ then we can formulate some concepts of Poisson geometry in infinite dimensions.  Though infinite Poisson geometry becomes rife with functional analysis it is immediately applicable to inviscid fluid mechanics, which is described by the equations
+\begin{align*}
+\frac{\partial \bM}{\partial t}+\tv\cdot \grad \bM +(\grad \cdot \tv)\bM=&-\grad p\\
+\frac{\partial \rho}{\partial t}+\grad \cdot \bM =& 0
+\end{align*}
+where $\rho$ is the density, $\tv$ is the velocity, $p$ is the pressure, and $\bM=\rho \tv$ is the fluid momentum.  It can also be described as the system $(L^2(\bbR), \{\cdot,\cdot\}_M)$ where
+\[
+\{F,G\}_M = \int_{\bbR^3}M_i \left(\frac{\delta G}{\delta M_j} \frac{\partial}{\partial x_j}\frac{\delta F}{\delta M_i}-\frac{\delta F}{\delta M_j}\frac{\partial}{\partial x_j}\frac{\delta G}{\delta M_i}\right) \ \td^3 x\\
++ \int_{\bbR^3} \rho\left(\frac{\delta G}{\delta \bM}\cdot \grad \frac{\delta F}{\delta \rho}-\frac{\delta F}{\delta \bM} \cdot \grad \frac{\delta G}{\delta \rho}\right) \ \td^3 x
+\]
+and where the Hamiltonian is the total energy function given by
+\[
+H = \int_{\bbR^3} \left(\frac{\|\bM\|^2}{2\rho}+\rho U(\rho)\right) \ \td^3 x
+\]
+with $U$ the internal energy.  This is the point where Poisson geometry really gives more utility than other methods.  Since, as we saw, Poisson geometry makes it much easier to find invariants and to judge the stability of solutions it lends itself naturally to the open problems of stability of solutions for inviscid fluid mechanics, investigated in [7].  This area of research is exciting, and the author recently investigated using a reduction of this system to settle some open questions in the realm of self-gravitating fluids.
+
+This idea can be taken further when applied to incompressible fluid mechanics.  Here $\partial_t \rho=0$ and $\grad\cdot \tv=0$.  To incorporate these constraints into our bracket, however, we must introduce a non-physical Hamiltonian.  This is physically unsatisfying, and in trying to understand how to make these constraints intrinsic to our bracket, that is Casimirs, we turn to the concept of Dirac brackets.  This involves modifying a given bracket by adding Casimirs and is descirbed in [5].
+
+Finally Poisson geometry is quite naturally applicable to quantum mechanics.  If we have a classical system which we wish to quantize we may put it in Poisson form with the appropriate Dirac brackets, and then simply treat the variables as operators, and the bracket as the commutator.  Of course this is enormously useful, and also entirely rigorous as Dirac showed.
+
+
+
+\section{Acknowledgements}
+I would like to thank Norman Lebovitz, who was generous enough to work with me throughout 2015 and into this summer \textemdash \ for his help in understanding not only Poisson geometry, but also Riemann ellipsoids and his guiding hand as I investigated both.  Even if Riemann turned out to be right about Riemann ellipsoids, I still learned a lot!  I would also like to thank my mentor, Clark Butler, for his help editing and structuring this paper, and Peter May for setting up the REU and allowing me to study math and get paid!  As always, I would like to thank my parents for providing me with the environment in which my love of math could flourish.
+
+
+\appendix
+\section{Distributions and Foilations}
+
+\subsection{Distributions and the Frobenius Theorem}
+\begin{dfn}
+Let $M$ be a smooth manifold.  Then for each $x\in M$ let $D_x\subset T_xM$ be a linear subspace of dimension $k$, and take $D=\bigcup_{x\in M}D_x$.  We call $D$ a rank-$k$ distribution.  Further suppose each point $x\in M$ has some neighborhood $U$ on which there exist smooth vector fields $X_1,\cdots, X_k\colon U \rightarrow TM$ such that $X_1\mid_p, \cdots, X_k \mid_p$ form a basis for $D_p$ at each $p\in U$.  We then call $D$ a smooth distribution.
+\end{dfn}
+
+\begin{dfn}
+Let $D\subset TM$ be a smooth distribution and $N\subset M$ be a nonempty immersed submanifold of $M$.  If $T_x N=D_x$ for all $x\in N$ then we call $N$ an integral manifold of $D$.
+\end{dfn}
+
+
+\begin{dfn}
+A smooth distribution $D$ of $M$ is called integrable if each point $x\in M$ is contained in an integral manifold of $D$.
+\end{dfn}
+
+We now make the seemingly arbitrary definition of involutivity.
+
+\begin{dfn}
+Let $D$ be a distribution and take $X$, $Y$,  to be arbitrary smooth vector fields defined on an open subset of $M$ such that $X_x,Y_x\in D_x$ for each $x$.  If $[X,Y]_x \in D_x$ for each $x$, where $[X,Y]$ is the Lie bracket of the two fields, then we call $D$ involutive.
+\end{dfn}
+
+However, we now see that this definition was not arbitrary.
+
+\begin{prop}
+Every integrable distribution is involutive.
+\end{prop}
+\begin{proof}
+See Proposition 19.3 of [3].
+\end{proof}
+
+\begin{dfn}
+Take a rank-$k$ distribution $D\subset TM$ and a smooth coordinate chart $(U,\phi)$ on $M$.  We say that the coordinate chart is flat for $D$ if $\phi(U)$ is a cube in $\bbR^n$, and for points of $U$ $D$ is spanned by the first $k$-coordinate vector fields: $\frac{\partial}{\partial x_1},\cdots,\frac{\partial}{\partial x_k}$.
+\end{dfn}
+
+\begin{dfn}
+We say that a given distribution $D\subset TM$ is completely integrable if there exists a flat chart for $D$ in a neighborhood of every $x\in M$.
+\end{dfn}
+
+\begin{thm}[Frobenius]
+Every involutive distribution is completely integrable.
+\end{thm}
+\begin{proof}
+See Theorem 19.12 of [3].
+\end{proof}
+
+
+
+\subsection{Foliations and the Global Frobenius Theorem}
+
+Given an involutive rank-$k$ distribution on a smooth manifold $M$ we obtain a collection of integral submanifolds of $M$ which partition it.  The concept of foliation formalizes this.
+
+\begin{dfn}
+Let $M$ be a smooth $n$-manifold and $\sF$ be an arbitrary collection of $k$-dimensional submanifolds of $M$.  A smooth chart $(U,\phi)$ for $M$ is said to be flat for $\sF$ if $\phi(U)$ is a cube in $\bbR^n$ and each submanifold in $\sF$ intersects $U$ in either the empty set or a countable union of $k$-dimensional slices of the form $x_i=c_i$ for $k+1\leq i\leq n$ (where the $c_i$ are constants).
+\end{dfn}
+
+\begin{dfn}
+A foliation of dimension $k$ on $M$ is a collection $\sF$ of disjoint, connected, nonempty, immersed $k$-dimensional submanifolds of $M$ (called the leaves of the foliation), whose union is $M$, and such that in a neighborhood of each point $x\in M$ there exists a flat chart for $\sF$.
+\end{dfn}
+
+\begin{thm}[Global Frobenius Theorem]
+Let $D$ be an involutive distribution on a smooth manifold $M$.  The collection of all maximal connected integral manifolds of $D$ forms a foliation of $M$.
+\end{thm}
+\begin{proof}
+See Theorem 19.21 in [3].
+\end{proof}
+
+
+
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Arnold}
+V. I. Arnold.
+Ordinary Differential Equations.
+The MIT Press, 1973.
+
+\bibitem{da Silva}
+Ana Cannas da Silva.
+Lectures on Symplectic Geometry.
+Springer-Verlag, 2008.
+
+\bibitem{Lee}
+John M. Lee.
+Introduction to Smooth Manifolds.
+Springer-Verlag, 2013.
+
+\bibitem{Marcut}
+Ioan Marcut and Rui Loja Fernandes.
+Lectures on Poisson Geometry.
+Springer-Verlag, 2014.
+
+\bibitem{Nguyen}
+Sonnet Nguyen and Lukasz A. Turski.
+Canonical description of incompressible fluid.
+Physics A, 1999.
+
+\bibitem{Pars}
+L. A. Pars.
+A Treastsie on Analytical Dynamics.
+Ox Bow Press, 1981.
+
+\bibitem{Swaters}
+Gordon E. Swaters.
+Introduction to Hamiltonian Fluid Dynamics and Stability Theory.
+Chapman \& Hall/CRC, 2000.
+
+
+\end{thebibliography}
+
+
+
+
+\end{document}
